@@ -1,0 +1,125 @@
+@import url('https://fonts.googleapis.com/css2?family=Ephesis&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+@font-face {
+    font-family: 'Qurova';
+    src: url('../fonts/QurovaDEMO-Bold-BF67a5c637eed62.otf') format('opentype');
+}
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.fc{
+    flex-direction: column;
+}
+
+.fc, .fr{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+body{
+    background-color: black;
+    color: white;
+    display: flex;
+
+    font-family: "Poppins", sans-serif;
+}
+
+header{
+    border-right: 1px solid rgba(255, 255, 255, 0.295);
+    height: 100vh;
+    padding: 2rem;  
+    padding-top: 3rem;
+    width: 20%;
+
+    justify-content: start !important;
+    align-items: start !important;
+
+    position: sticky;
+    top: 0;
+    left: 0;
+}
+
+.logo{
+    /* font-family: "Ephesis", cursive; */
+    font-family: Qurova;
+    font-weight: bold;
+    font-size: 1.8rem;
+    word-spacing: 5px;
+}
+
+.top{
+    gap: 2rem;
+    align-items: start !important;
+}
+
+nav ul{
+    list-style: none;
+    align-items: start !important;
+    gap: 0.5rem;
+}
+
+.bottom{
+    position: absolute;
+    bottom: 3rem;
+}
+
+.link{
+    text-decoration: none;
+    color: white;
+
+    display: flex;
+    justify-content: start;
+    align-items: center;
+}
+
+.align_icon{
+    width: 2.5rem;
+    /* border: 2px solid red; */
+}
+
+i{
+    font-size: 1.3rem;
+}
+
+/* ====================================================================== */
+
+main{
+    padding: 2rem;
+    /* margin-left: 15rem; */
+    /* border-right: 1px solid rgba(255, 255, 255, 0.295); */
+    width: 55%;
+
+    margin-right: 25%;
+
+}
+
+footer{
+    width: 25%;
+    padding: 2rem;
+
+    justify-content: start !important;
+    align-items: start !important;
+    gap: 1rem;
+
+    position: fixed;
+    top: 0;
+    right: 0;
+}
+
+.user{
+    gap: 1rem;
+    justify-content: start !important;
+}
+
+.user p:last-child{
+    color: grey;
+}
+
+.avatar{
+    border-radius: 50%;
+}

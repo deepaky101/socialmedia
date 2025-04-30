@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://kit.fontawesome.com/ac6bf4de74.js" crossorigin="anonymous"></script>
+    <link rel="icon" href="https://cdn-icons-png.freepik.com/512/1384/1384886.png">
+    <link rel="stylesheet" href="/static/css/layout.css?{% now "U" %}">
+    {% block css %}{% endblock %}
+    <title>Socialgram</title>
+</head>
+<body>
+    <header class='fc'>
+
+        <div class='top fc'>
+            <a class='logo link' href="{% url "feed" %}">
+                Socialgram
+            </a>
+    
+            <nav>
+                <ul class='fc'>
+                    <li><a href="{% url "feed" %}" class='link'>
+                        <div class="align_icon fr"><i class="fa-solid fa-house"></i></div> Feed
+                    </a></li>
+                    <li><a href="{% url "post" %}" class='link'>
+                        <div class="align_icon fr"><i class="fa-solid fa-square-plus"></i></div> Post
+                    </a></li>                        
+                    </ul>
+                </nav>
+            </div>
+            
+        <a class='bottom link' href="{% url "profile" %}">
+            <div class="align_icon fr">
+                <img class='avatar' width='30' src="{{request.user.avatar.url}}" alt="">
+            </div> Profile
+        </a>
+
+    </header>
+
+    <main>
+        {% block main %}{% endblock %}
+    </main>
+
+    <footer class='fc'>
+        <a href='{% url "profile" %}' class='fr user link'>
+            <img class='avatar' width='50' src="{{request.user.avatar.url}}" alt="">
+            <div>
+                <p>{{request.user.username}}</p>
+                <p>{{request.user.first_name}} {{request.user.last_name}}</p>
+            </div>
+        </a>
+
+
+        <a href="{% url "logout" %}" class='link'>Logout</a>
+    </footer>
+</body>
+</html>

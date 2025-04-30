@@ -1,0 +1,24 @@
+{% extends "website/layout.html" %}
+
+{% block main %}
+<h2>{{ user.username }}'s Profile</h2>
+<img class='avatar' src="{{ user.avatar.url }}" style="max-width: 120px; border-radius: 50%;">
+
+<p>Posts: {{ post_count }}</p>
+
+<hr>
+
+<h3>Your Posts</h3>
+{% for post in posts %}
+    <div style="border: 1px solid #ccc; padding: 10px; margin-bottom: 10px;">
+        <p>{{ post.content }}</p>
+        {% if post.image %}
+            <img src="{{ post.image.url }}" style="max-width: 300px;">
+        {% endif %}
+        <p>Posted on: {{ post.created_at }}</p>
+    </div>
+{% empty %}
+    <p>You haven't posted anything yet.</p>
+{% endfor %}
+
+{% endblock %}

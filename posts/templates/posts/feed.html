@@ -1,0 +1,57 @@
+{% extends "website/layout.html" %}
+
+{% block css %}
+<link rel="stylesheet" href="/static/css/feed.css?{% now "U" %}">
+{% endblock %}
+
+{% block main %}
+
+{% for post in posts %}
+    <div id="post-{{ post.id }}" style="padding: 10px; margin-bottom: 10px;">
+        <p>
+            <img class='avatar' width='20' src="{{ post.user.avatar.url }}" alt="">
+            <strong>{{ post.user.username }}</strong> | {{ post.created_at }}
+        </p>
+        {% if post.image %}
+        <img src="{{ post.image.url }}" style="max-width: 300px;">
+        {% endif %}
+        <p>
+            <a href="{% url 'like_post' post.id %}">❤️ {{ post.likes.count }} Likes</a>
+        </p>
+        <div class='caption'>
+            <p>
+                <img class='avatar' width='20' src="{{ post.user.avatar.url }}" alt="">
+                <strong>{{ post.user.username }}</strong> | 
+            </p>
+            <p>{{ post.content }}</p>
+        </div>
+        
+        
+        <div style='border: 1px solid grey; margin: 0.5rem 0; padding: 0.5rem; color: lightgrey;' class='fc comment_cover'>
+            <p>comments -</p>
+            {% for comment in post.comments.all %}
+                <div class='fr comment'>
+                    <img class='avatar' width='30' src="{{comment.user.avatar.url}}" alt="">
+                    <div>
+                        <p><strong>{{ comment.user.username }}</strong></p>
+                        <p>{{ comment.comment }}</p>
+                    </div>
+                </div>
+            {% empty %}
+                <p>no comments yet!</p>
+            {% endfor %}
+        </div>
+
+        <form method="post" action="{% url 'add_comment' post.id %}">
+            {% csrf_token %}
+            <input type="text" name="comment" placeholder="Add a comment..." required>
+            <button type="submit">Comment</button>
+        </form>
+        
+    </div>
+
+    <hr>
+{% endfor %}
+
+
+{% endblock %}

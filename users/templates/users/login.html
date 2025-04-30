@@ -1,0 +1,24 @@
+{% extends "website/layout.html" %}
+
+{% block css %}
+<link rel="stylesheet" href="/static/css/signup.css?{% now "U" %}">
+{% endblock %}
+
+{% block main %}
+
+<div class='sigup_form fc'>
+    <h2>Login</h2>
+    <form method="POST">
+        {% csrf_token %}
+        {{form.as_p}}
+
+        {% if next %}
+            <input type="hidden" name="next" value="{{ next }}">
+        {% endif %}
+
+        <button class='btn' type='submit'>Login</button>
+    </form>
+    <p class='msg'>Create an account? <a href="{% url "signup" %}">sign up</a></p>    
+</div>
+
+{% endblock %}

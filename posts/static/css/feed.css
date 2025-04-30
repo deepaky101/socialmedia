@@ -1,0 +1,22 @@
+.caption{
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    gap: 1rem;
+}
+
+.comment_cover{
+    align-items: start !important;
+    gap: 6px;
+    font-size: small;
+}
+
+.comment {
+    gap: 5px;
+    justify-content: start !important;
+}
+
+.comment strong{
+    font-size: smaller;
+    color: rgb(191, 191, 191);
+}

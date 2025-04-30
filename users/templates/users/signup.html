@@ -1,0 +1,26 @@
+{% extends "website/layout.html" %}
+
+{% block css %}
+<link rel="stylesheet" href="/static/css/signup.css?{% now "U" %}">
+{% endblock %}
+
+{% block main %}
+
+<div class='sigup_form fc'>
+    <h2>Sign Up</h2>
+    <form method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+        {{form.as_p}}
+        <button class='btn' type='submit'>Sign Up</button>
+    </form>
+
+    <p class='msg'>already have an account? <a href="{% url "login" %}">login</a></p>    
+</div>
+
+
+<script>
+    let ul = document.querySelector('p + ul')
+    ul.style.display = 'none'
+</script>
+
+{% endblock %}
